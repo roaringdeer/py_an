@@ -1,0 +1,82 @@
+# def problem():
+#     nodes = []
+#     for i in range(6):
+#         node = Node(i)
+#         decisions: List[Decision] = []
+#         if i < 5:
+#             for j in range(5):
+#                 decisions.append(Decision(j + 1))
+#         else:
+#             for j in range(6):
+#                 decisions.append(Decision(j + 1))
+#
+#         node.decisions = decisions
+#         nodes.append(node)
+
+# def old_make_admissible_chains(self) -> None:
+#     chains: List[Chain] = []
+#     for i in range(len(self.nodes[0].decisions)):
+#         chains.append(Chain([i + 1], [self.nodes[0].id]))  # get all initial decisions
+#     nodes_ids = [i.id for i in self.nodes]
+#     links = []
+#     for link in self.links:
+#         if link.source_node_id in nodes_ids:
+#             if link.target_node_id in nodes_ids:
+#                 links.append(link)
+#     for i in range(len(links)):
+#         chains2extend = []
+#         for chain in chains:
+#             if chain.decision_order[-1] == links[i].source_decision_id:
+#                 if len(chain.decision_order) == links[i].source_node_id + 1:
+#                     chains2extend.append(chain)
+#         for k in range(len(chains2extend)):
+#             chains2extend[k].decision_order.append(links[i].target_decision_id[0])
+#             chains2extend[k].nodes_order.append(links[i].target_node_id)
+#             if len(links[i].target_decision_id) > 1:
+#                 for j in range(len(links[i].target_decision_id) - 1):
+#                     cpy = deepcopy(chains2extend[k])
+#                     cpy.decision_order[-1] = links[i].target_decision_id[j + 1]
+#                     cpy.nodes_order[-1] = links[i].target_node_id
+#                     chains.insert(chains.index(chains2extend[k]) + 1 + j, cpy)
+#     for i in range(len(chains[0].decision_order) - 1, -1, -1):
+#         indx = []
+#         print(self.nodes[i].id, self.nodes[i].preference_structure)
+#         for chain in chains:
+#             print(chain.decision_order, chain.nodes_order)
+#             indx.append(self.nodes[i].preference_structure.index(chain.decision_order[i]))
+#         chains = Utilities.selection_sort(indx, chains)
+#     self.chains = chains
+
+# def old_get_nodes_chains(self) -> list:  # find all admissible chain paths (using DFS-like algorithm)
+#     output = [[0]]
+#     nodes = []
+#     for i in range(len(self.nodes)):
+#         nodes = self.__get_connected_nodes_ids(self.nodes[i])
+#         # print("dfs ", i, nodes)
+#         if len(nodes) > 1:
+#             for j in range(len(nodes)-1):
+#                 temp = self.__copy_nodes_chain(output, self.nodes[i].id)
+#                 if len(temp) > 0:
+#                     output.append(temp)
+#         ind = []
+#         for out in output:
+#             # print(out)
+#             if out[-1] == self.nodes[i].id:
+#                 ind.append(output.index(out))
+#         for j in range(len(nodes)):
+#             output[j].append(nodes[j])
+#     return output
+
+# @staticmethod
+# def __copy_nodes_chain(nodes_chains: List[List[int]], node_id: int) -> list:
+#     to_copy = []
+#     for elem in nodes_chains:
+#         try:
+#             elem.index(node_id)
+#         except ValueError:
+#             continue
+#         else:
+#             if elem[-1] == node_id:
+#                 to_copy = deepcopy(elem)
+#                 break
+#     return to_copy
