@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
-from Chain import Chain, List
+from old_algorithm.Chain import Chain, List
 
 
 def plot_setup():

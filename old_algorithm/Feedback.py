@@ -1,4 +1,4 @@
-from Node import *
+from old_algorithm.Node import *
 
 
 class Feedback:

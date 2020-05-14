@@ -1,10 +1,10 @@
 from copy import deepcopy
 from typing import Tuple
-from AnticipatoryNetwork import AnticipatoryNetwork
-from Decision import Decision
-from Feedback import Feedback
-from Link import Link
-from Node import Node, List
+from old_algorithm.AnticipatoryNetwork import AnticipatoryNetwork
+from old_algorithm.Decision import Decision
+from old_algorithm.Feedback import Feedback
+from old_algorithm.Link import Link
+from old_algorithm.Node import Node, List
 
 
 class NetworkReader:

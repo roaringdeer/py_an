@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import networkx as nx
-from NetworkReader import *
+from old_algorithm.NetworkReader import *
 
 
 class ANGraph:

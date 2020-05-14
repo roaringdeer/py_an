@@ -1,6 +1,6 @@
 from typing import *
 
-from Decision import Decision
+from old_algorithm.Decision import Decision
 
 
 class Node:
@@ -8,6 +8,7 @@ class Node:
         self.id: int = node_id
         self.decisions: List[Decision] = []
         self.preference_structure: List[int] = []
+        self.coefficients = []
 
     def make_preference_structure(self) -> None:
         criteria: List[float] = self.decisions[0].criteria
